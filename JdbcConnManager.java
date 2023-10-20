@@ -13,7 +13,8 @@ public class JdbcConnManager {
         try {
             Connection conn = DriverManager.getConnection(url, "root", "Shivam@88");
             return conn;
-        } catch (SQLException sqle) {
+        }
+        catch (SQLException sqle) {
             sqle.printStackTrace();
         }
         return null;
