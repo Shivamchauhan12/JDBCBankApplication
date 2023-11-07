@@ -4,19 +4,20 @@ import java.sql.SQLException;
 
 public class JdbcConnManager {
     public static Connection getConnection() {
+        Connection conn=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException cnfe) {
-            cnfe.printStackTrace();
+        } catch (Exception exc) {
+            System.out.println(exc.getMessage());
         }
-        String url = "jdbc:mysql://localhost:3306/jdbc";
         try {
-            Connection conn = DriverManager.getConnection(url, "root", "Shivam@88");
+            String url = "jdbc:mysql://localhost:3306/jdbc";
+             conn = DriverManager.getConnection(url, "root", "Shivam@88");
             return conn;
         }
-        catch (SQLException sqle) {
-            sqle.printStackTrace();
+        catch (Exception exc) {
+            System.out.println(exc.getMessage());
         }
-        return null;
+        return conn;
     }
 }

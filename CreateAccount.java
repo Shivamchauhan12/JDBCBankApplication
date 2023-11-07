@@ -12,6 +12,7 @@ public class CreateAccount {
     private String  email;
     private int   amount;
     private int accountNumber;
+    private Connection conn=JdbcConnManager.getConnection();
 
     public  void CreateAccount(){
 
@@ -78,13 +79,13 @@ public class CreateAccount {
     }
 
     public void addAccountToDataBase() throws SQLException{
-        Connection conn=JdbcConnManager.getConnection();
         Statement st=conn.createStatement();
         String query = "insert into user(First_name,Last_name,Mobile_no,Account_no,Email_id,Balance) values('" + firstname + "','" + lastname + "','" + mob + "'," + accountNumber + ",'" + email + "'," + amount + ")";
         int x=st.executeUpdate(query);
         System.out.println("Account is created : "+"User Name: "+firstname+" "+lastname+" , "+" Account Number : "+accountNumber);
         conn.close();
     }
+
     //    Table creation Query...
     //    String str="CREATE TABLE USER(First_name VARCHAR(53) NOT NULL,Last_name VARCHAR(52) NOT NULL,Mobile_no VARCHAR(52) NOT NULL,Account_no int NOT NULL,Email_id VARCHAR(52),Balance int)";
 }

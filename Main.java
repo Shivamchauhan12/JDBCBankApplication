@@ -33,7 +33,7 @@ public class Main {
                     break;
                 }
                 case 2: {
-                    new CheckUserDetails().CheckUserDetails(conn, account);
+                    new CheckUserDetails().CheckUserDetails(account);
                     break;
                 }
                 case 3: {
